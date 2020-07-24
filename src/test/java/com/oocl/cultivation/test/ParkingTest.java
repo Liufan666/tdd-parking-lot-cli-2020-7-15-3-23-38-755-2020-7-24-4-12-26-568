@@ -26,4 +26,19 @@ public class ParkingTest {
         //then
         assertEquals("123456",car.getNumber());
     }
+
+    @Test
+    void should_return_two_tickets_123456_and_123457_when_parking_car_given_two_cars_123456_and_123457() {
+        //given
+        Car car1 = new Car("123456");
+        Car car2 = new Car("123457");
+        ParkingBoy parkingBoy = new ParkingBoy();
+        //when
+        Ticket ticket1 = parkingBoy.parking(car1);
+        Ticket ticket2 = parkingBoy.parking(car2);
+
+        //then
+        assertEquals("123456",ticket1.getNumber());
+        assertEquals("123457",ticket2.getNumber());
+    }
 }
