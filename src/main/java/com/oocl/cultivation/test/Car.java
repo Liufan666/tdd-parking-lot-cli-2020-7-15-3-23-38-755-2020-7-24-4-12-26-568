@@ -6,4 +6,12 @@ public class Car {
     public Car(String number) {
         this.number = number;
     }
+
+    public Car() {
+        this.number = null;
+    }
+
+    public String getNumber() {
+        return null;
+    }
 }
