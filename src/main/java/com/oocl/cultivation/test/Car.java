@@ -12,6 +12,6 @@ public class Car {
     }
 
     public String getNumber() {
-        return null;
+        return this.number;
     }
 }
