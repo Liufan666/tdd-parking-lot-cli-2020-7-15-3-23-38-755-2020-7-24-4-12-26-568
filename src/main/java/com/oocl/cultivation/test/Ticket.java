@@ -1,7 +1,13 @@
 package com.oocl.cultivation.test;
 
 public class Ticket {
+    private String number;
+
+    public Ticket(String number) {
+        this.number = number;
+    }
+
     public String getNumber() {
-        return "0000000";
+        return number;
     }
 }
