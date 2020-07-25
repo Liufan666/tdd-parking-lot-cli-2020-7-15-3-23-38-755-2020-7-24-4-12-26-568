@@ -21,4 +21,10 @@ public class ParkingBoy {
         return new Car(ticket.getNumber());
 
     }
+
+    public Ticket parking(Car car, ParkingLot parkingLot) {
+        return null;
+    }
+
+
 }

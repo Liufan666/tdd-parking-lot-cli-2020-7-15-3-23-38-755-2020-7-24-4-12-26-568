@@ -1,10 +1,24 @@
 package com.oocl.cultivation.test;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParkingTest {
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    public ByteArrayOutputStream out = null;
+    @BeforeEach
+    public void setup(){
+        System.setOut(new PrintStream(outContent));
+    }
+    private String systemOut(){
+        return outContent.toString();
+    }
+
     @Test
     void should_return_one_ticket_123456_when_parking_car_given_one_car_123456() {
         //given
@@ -90,5 +104,20 @@ public class ParkingTest {
         Car car2 = parkingBoy.fetch(ticket);
         //then
         assertEquals(null, car2);
+    }
+
+    @Test
+    void should_return_null_position_when_parking_car_given_one_parkinglot_no_position() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingLot parkingLot = new ParkingLot();
+        //when
+        for (int index=0;index<10;index++){
+            parkingBoy.parking(new Car(),parkingLot);
+        }
+        Ticket ticket = parkingBoy.parking(new Car());
+
+        //then
+        assertEquals(null, ticket);
     }
 }
