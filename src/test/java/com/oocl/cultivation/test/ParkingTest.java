@@ -79,4 +79,16 @@ public class ParkingTest {
         //then
         assertEquals(null,car);
     }
+
+    @Test
+    void should_return_null_when_fetch_car_given_one_used_ticket() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Ticket ticket = parkingBoy.parking(new Car("123456"));
+        //when
+        Car car1 = parkingBoy.fetch(ticket);
+        Car car2 = parkingBoy.fetch(ticket);
+        //then
+        assertEquals(null, car2);
+    }
 }
