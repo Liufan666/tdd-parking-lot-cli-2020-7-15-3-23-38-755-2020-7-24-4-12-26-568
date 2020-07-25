@@ -19,8 +19,8 @@ public class ParkingTest {
     @Test
     void should_return_one_car_123456_when_fetch_car_given_one_ticket_123456() {
         //given
-        Ticket ticket = new Ticket("123456");
         ParkingBoy parkingBoy = new ParkingBoy();
+        Ticket ticket = parkingBoy.parking(new Car("123456"));
         //when
         Car car = parkingBoy.fetch(ticket);
         //then
