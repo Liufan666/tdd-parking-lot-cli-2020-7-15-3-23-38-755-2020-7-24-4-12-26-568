@@ -61,7 +61,7 @@ public class ParkingTest {
     @Test
     void should_return_null_when_fetch_car_given_one_wrong_ticket(){
         //given
-        Ticket ticket = new Ticket("775432");
+        Ticket ticket = new Ticket("123456");
         ParkingBoy parkingBoy = new ParkingBoy();
         //when
         Car car = parkingBoy.fetch(ticket);
