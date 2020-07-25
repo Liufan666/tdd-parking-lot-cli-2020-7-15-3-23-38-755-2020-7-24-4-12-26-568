@@ -14,6 +14,10 @@ public class ParkingBoy {
         if(ticket.getParkingBoy()!=this){
             return null;
         }
+        if (ticket.getIsUsed()){
+            return null;
+        }
+        ticket.useTicket();
         return new Car(ticket.getNumber());
 
     }
