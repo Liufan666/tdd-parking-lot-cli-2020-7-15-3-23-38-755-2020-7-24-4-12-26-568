@@ -115,7 +115,7 @@ public class ParkingTest {
         for (int index=0;index<10;index++){
             parkingBoy.parking(new Car(),parkingLot);
         }
-        Ticket ticket = parkingBoy.parking(new Car());
+        Ticket ticket = parkingBoy.parking(new Car(),parkingLot);
 
         //then
         assertEquals(null, ticket);

@@ -23,7 +23,13 @@ public class ParkingBoy {
     }
 
     public Ticket parking(Car car, ParkingLot parkingLot) {
-        return null;
+        if (parkingLot.getCapacity()>=parkingLot.getParkingRoom().size()){
+            return null;
+        }
+        Ticket ticket = new Ticket(car.getNumber());
+        ticket.setParkingBoy(this);
+        return ticket;
+
     }
 
 
