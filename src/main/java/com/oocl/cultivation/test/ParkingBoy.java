@@ -15,14 +15,18 @@ public class ParkingBoy {
         if(ticket==null){
             return null;
         }
-        if(ticket.getParkingBoy()!=this){
-            return null;
+        for(int index=0;index<parkingLots.size();index++){
+
+            if(isRecognized(ticket,parkingLots.get(index))){
+                ticket.useTicket();
+                Car car = parkingLots.get(index).getParkingRoom().get(ticket);
+                parkingLots.get(index).getParkingRoom().remove(ticket);
+                return car;
+            }
+
         }
-        if (ticket.getIsUsed()){
-            return null;
-        }
-        ticket.useTicket();
-        return new Car(ticket.getNumber());
+        System.out.print("Unrecognized parking ticket.\n");
+        return null;
 
     }
     public Car fetch(Ticket ticket ,ParkingLot parkingLot){
