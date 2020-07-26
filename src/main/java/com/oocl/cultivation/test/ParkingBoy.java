@@ -13,6 +13,7 @@ public class ParkingBoy {
 
     public Car fetch(Ticket ticket) {
         if(ticket==null){
+            System.out.print("Please provide your parking ticket.\n");
             return null;
         }
         for(int index=0;index<parkingLots.size();index++){
@@ -43,7 +44,7 @@ public class ParkingBoy {
 
     }
     public Ticket parking(Car car, ParkingLot parkingLot) {
-        if (parkingLot.getCapacity()>=parkingLot.getParkingRoom().size()){
+        if (parkingLot.getCapacity()<=parkingLot.getParkingRoom().size()){
             return null;
         }
         Ticket ticket = new Ticket();

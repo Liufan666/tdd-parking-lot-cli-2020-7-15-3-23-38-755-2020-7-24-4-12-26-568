@@ -34,11 +34,14 @@ public class ParkingTest {
     void should_return_one_car_123456_when_fetch_car_given_one_ticket_123456() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
-        Ticket ticket = parkingBoy.parking(new Car("123456"));
+        ParkingLot parkingLot = new ParkingLot();
+        parkingBoy.addParkingLots(parkingLot);
+        Car carParking = new Car("123456");
+        Ticket ticket = parkingBoy.parking(carParking,parkingLot);
         //when
-        Car car = parkingBoy.fetch(ticket);
+        Car carFetch = parkingBoy.fetch(ticket);
         //then
-        assertEquals("123456",car.getNumber());
+        assertEquals("123456",carFetch.getNumber());
     }
 
     @Test
@@ -60,8 +63,10 @@ public class ParkingTest {
     void should_return_two_cars_123456_and_123457_when_parking_car_given_two_tickets_123456_and_123457(){
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
-        Ticket ticket1 = parkingBoy.parking(new Car("123456"));
-        Ticket ticket2 = parkingBoy.parking(new Car("123457"));
+        ParkingLot parkingLot = new ParkingLot();
+        parkingBoy.addParkingLots(parkingLot);
+        Ticket ticket1 = parkingBoy.parking(new Car("123456"),parkingLot);
+        Ticket ticket2 = parkingBoy.parking(new Car("123457"),parkingLot);
 
 
         //when
