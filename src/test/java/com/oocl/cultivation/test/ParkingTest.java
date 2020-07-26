@@ -107,7 +107,7 @@ public class ParkingTest {
     }
 
     @Test
-    void should_return_null_position_when_parking_car_given_one_parkinglot_no_position() {
+    void should_return_null_when_parking_car_given_one_parkinglot_no_position() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
         ParkingLot parkingLot = new ParkingLot();
