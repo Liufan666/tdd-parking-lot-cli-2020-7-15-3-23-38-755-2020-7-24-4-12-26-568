@@ -25,7 +25,19 @@ public class ParkingBoy {
         return new Car(ticket.getNumber());
 
     }
+    public Car fetch(Ticket ticket ,ParkingLot parkingLot){
+        if(ticket==null){
+            return null;
+        }
+        if(!isRecognized(ticket,parkingLot)){
+            return null;
+        }
+        ticket.useTicket();
+        Car car = parkingLot.getParkingRoom().get(ticket);
+        parkingLot.getParkingRoom().remove(ticket);
+        return car;
 
+    }
     public Ticket parking(Car car, ParkingLot parkingLot) {
         if (parkingLot.getCapacity()>=parkingLot.getParkingRoom().size()){
             return null;
@@ -43,5 +55,8 @@ public class ParkingBoy {
     public void addParkingLots(ParkingLot parkingLot){
         this.parkingLots.add(parkingLot);
 
+    }
+    public boolean isRecognized(Ticket ticket,ParkingLot parkingLot){
+        return parkingLot.getParkingRoom().containsKey(ticket);
     }
 }

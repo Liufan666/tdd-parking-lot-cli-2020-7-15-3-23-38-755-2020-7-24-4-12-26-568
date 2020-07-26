@@ -120,4 +120,5 @@ public class ParkingTest {
         //then
         assertEquals(null, ticket);
     }
+
 }
