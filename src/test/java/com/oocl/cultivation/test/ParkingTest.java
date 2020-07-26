@@ -120,5 +120,17 @@ public class ParkingTest {
         //then
         assertEquals(null, ticket);
     }
+    @Test
+    void should_output_unrecognized_parking_ticket_when_fetch_car_given_one_wrong_ticket() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingLot parkingLot = new ParkingLot();
+        parkingBoy.addParkingLots(parkingLot);
+        //when
+        parkingBoy.fetch(new Ticket());
+
+        //then
+        assertEquals("Unrecognized parking ticket.\n", systemOut());
+    }
 
 }
