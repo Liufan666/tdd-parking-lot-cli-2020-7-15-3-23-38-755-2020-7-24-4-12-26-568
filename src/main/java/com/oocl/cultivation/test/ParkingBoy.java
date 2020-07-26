@@ -1,6 +1,10 @@
 package com.oocl.cultivation.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ParkingBoy {
+    private List<ParkingLot> parkingLots = new ArrayList<>();
     public Ticket parking(Car car) {
         Ticket ticket = new Ticket(car.getNumber());
         ticket.setParkingBoy(this);
@@ -26,11 +30,18 @@ public class ParkingBoy {
         if (parkingLot.getCapacity()>=parkingLot.getParkingRoom().size()){
             return null;
         }
-        Ticket ticket = new Ticket(car.getNumber());
+        Ticket ticket = new Ticket();
         ticket.setParkingBoy(this);
+        parkingLot.addParkingRoom(ticket,car);
         return ticket;
 
     }
 
+    public List<ParkingLot> getParkingLots() {
+        return parkingLots;
+    }
+    public void addParkingLots(ParkingLot parkingLot){
+        this.parkingLots.add(parkingLot);
 
+    }
 }

@@ -9,6 +9,9 @@ public class Ticket {
         this.number = number;
     }
 
+    public Ticket() {
+    }
+
     public String getNumber() {
         return number;
     }
