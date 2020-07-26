@@ -45,6 +45,7 @@ public class ParkingBoy {
     }
     public Ticket parking(Car car, ParkingLot parkingLot) {
         if (parkingLot.getCapacity()<=parkingLot.getParkingRoom().size()){
+            System.out.print("Not enough position.\n");
             return null;
         }
         Ticket ticket = new Ticket();
