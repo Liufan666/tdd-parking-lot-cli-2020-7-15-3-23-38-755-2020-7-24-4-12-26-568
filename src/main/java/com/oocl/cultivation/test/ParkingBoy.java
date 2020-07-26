@@ -6,9 +6,18 @@ import java.util.List;
 public class ParkingBoy {
     private List<ParkingLot> parkingLots = new ArrayList<>();
     public Ticket parking(Car car) {
-        Ticket ticket = new Ticket(car.getNumber());
-        ticket.setParkingBoy(this);
-        return ticket;
+        for(int index=0;index<parkingLots.size();index++){
+            if(parkingLots.get(index).isNoPosition()){
+                continue;
+            }
+            Ticket ticket = new Ticket(car.getNumber());
+            ticket.setParkingBoy(this);
+            parkingLots.get(index).addParkingRoom(ticket,car);
+            return ticket;
+
+        }
+        System.out.print("Not enough position.\n");
+        return null;
     }
 
     public Car fetch(Ticket ticket) {

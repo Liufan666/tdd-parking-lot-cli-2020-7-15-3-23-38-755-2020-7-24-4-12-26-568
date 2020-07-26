@@ -30,4 +30,8 @@ public class ParkingLot {
     public boolean isContainCar(Car car1) {
         return parkingRoom.containsValue(car1);
     }
+
+    public boolean isNoPosition() {
+        return parkingRoom.size()>=capacity;
+    }
 }

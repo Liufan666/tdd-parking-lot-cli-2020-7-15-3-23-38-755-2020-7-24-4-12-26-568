@@ -183,9 +183,9 @@ public class ParkingTest {
         parkingBoy.parking(car3);
         parkingBoy.parking(car4);
         boolean isCar1InA = parkingLotA.isContainCar(car1);
-        boolean isCar2InA = parkingLotA.isContainCar(car1);
-        boolean isCar3InA = parkingLotA.isContainCar(car1);
-        boolean isCar4InB = parkingLotB.isContainCar(car1);
+        boolean isCar2InA = parkingLotA.isContainCar(car2);
+        boolean isCar3InA = parkingLotA.isContainCar(car3);
+        boolean isCar4InB = parkingLotB.isContainCar(car4);
 
         //then
         assertEquals(true,isCar1InA);
