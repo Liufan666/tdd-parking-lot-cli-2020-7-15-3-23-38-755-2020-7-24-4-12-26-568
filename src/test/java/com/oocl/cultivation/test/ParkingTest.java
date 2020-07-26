@@ -151,4 +151,17 @@ public class ParkingTest {
         assertEquals("Please provide your parking ticket.\n", systemOut());
     }
 
+    @Test
+    void should_output_not_enough_position_when_parking_car_given_one_parkinglot_no_position() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingLot parkingLot = new ParkingLot(1);
+
+        //when
+        parkingBoy.parking(new Car(),parkingLot);
+        parkingBoy.parking(new Car(),parkingLot);
+        //then
+        assertEquals("Not enough position.\n", systemOut());
+    }
+
 }
