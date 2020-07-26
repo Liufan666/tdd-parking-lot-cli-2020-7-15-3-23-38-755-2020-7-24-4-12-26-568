@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingBoy {
-    private List<ParkingLot> parkingLots = new ArrayList<>();
+    protected List<ParkingLot> parkingLots = new ArrayList<>();
     public Ticket parking(Car car) {
         for(int index=0;index<parkingLots.size();index++){
             if(parkingLots.get(index).isNoPosition()){
