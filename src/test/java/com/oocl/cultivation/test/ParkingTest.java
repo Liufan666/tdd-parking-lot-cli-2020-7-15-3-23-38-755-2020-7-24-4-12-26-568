@@ -24,6 +24,7 @@ public class ParkingTest {
         //given
         Car car = new Car("123456");
         ParkingBoy parkingBoy = new ParkingBoy();
+        parkingBoy.addParkingLots(new ParkingLot());
         //when
         Ticket ticket = parkingBoy.parking(car);
         //then
@@ -50,6 +51,7 @@ public class ParkingTest {
         Car car1 = new Car("123456");
         Car car2 = new Car("123457");
         ParkingBoy parkingBoy = new ParkingBoy();
+        parkingBoy.addParkingLots(new ParkingLot());
         //when
         Ticket ticket1 = parkingBoy.parking(car1);
         Ticket ticket2 = parkingBoy.parking(car2);
