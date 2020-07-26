@@ -26,4 +26,8 @@ public class ParkingLot {
     public HashMap<Ticket, Car> getParkingRoom() {
         return parkingRoom;
     }
+
+    public boolean isContainCar(Car car1) {
+        return parkingRoom.containsValue(car1);
+    }
 }

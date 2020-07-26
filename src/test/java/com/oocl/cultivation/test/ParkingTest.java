@@ -164,4 +164,35 @@ public class ParkingTest {
         assertEquals("Not enough position.\n", systemOut());
     }
 
+    @Test
+    void should_return_true_when_iscontaincar_after_parking_in_two_parkinglot_given_four_car() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingLot parkingLotA = new ParkingLot(3);
+        ParkingLot parkingLotB = new ParkingLot(3);
+        parkingBoy.addParkingLots(parkingLotA);
+        parkingBoy.addParkingLots(parkingLotB);
+        Car car1 = new Car();
+        Car car2 = new Car();
+        Car car3 = new Car();
+        Car car4 = new Car();
+
+        //when
+        parkingBoy.parking(car1);
+        parkingBoy.parking(car2);
+        parkingBoy.parking(car3);
+        parkingBoy.parking(car4);
+        boolean isCar1InA = parkingLotA.isContainCar(car1);
+        boolean isCar2InA = parkingLotA.isContainCar(car1);
+        boolean isCar3InA = parkingLotA.isContainCar(car1);
+        boolean isCar4InB = parkingLotB.isContainCar(car1);
+
+        //then
+        assertEquals(true,isCar1InA);
+        assertEquals(true,isCar2InA);
+        assertEquals(true,isCar3InA);
+        assertEquals(true,isCar4InB);
+    }
+
+
 }
