@@ -3,10 +3,9 @@ package com.oocl.cultivation.test;
 public class SmartParkingBoy extends ParkingBoy{
     @Override
     public Ticket parking(Car car) {
-        int indexOfMaxEmptyPosition = 0;
         ParkingLot parkingLot = parkingLots.get(0);
         for(int index=0;index<parkingLots.size();index++){//todo
-            if((parkingLots.get(indexOfMaxEmptyPosition).getEmptyPosition())
+            if((parkingLot.getEmptyPosition())
                         <(parkingLots.get(index).getEmptyPosition())){
                 parkingLot = parkingLots.get(index);
             }
