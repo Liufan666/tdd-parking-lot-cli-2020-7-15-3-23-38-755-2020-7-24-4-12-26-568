@@ -28,7 +28,7 @@ public class ParkingBoy {
         for(int index=0;index<parkingLots.size();index++){
 
             if(isRecognized(ticket,parkingLots.get(index))){
-                ticket.useTicket();
+
 
 
                 return parkingLots.get(index).getParkingRoom().remove(ticket);
