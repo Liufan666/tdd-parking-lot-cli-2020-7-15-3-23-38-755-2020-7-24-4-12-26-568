@@ -11,7 +11,7 @@ public class ParkingBoy {
                 continue;
             }
             Ticket ticket = new Ticket(car.getNumber());
-            ticket.setParkingBoy(this);
+
             parkingLots.get(index).addParkingRoom(ticket,car);
             return ticket;
 
@@ -46,7 +46,7 @@ public class ParkingBoy {
             return null;
         }
         Ticket ticket = new Ticket();
-        ticket.setParkingBoy(this);
+
         parkingLot.addParkingRoom(ticket,car);
         return ticket;
 

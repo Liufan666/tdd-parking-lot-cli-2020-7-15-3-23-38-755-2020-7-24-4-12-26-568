@@ -16,7 +16,6 @@ public class SmartParkingBoy extends ParkingBoy{
             return null;
         }
         Ticket ticket = new Ticket(car.getNumber());
-        ticket.setParkingBoy(this);
         parkingLot.addParkingRoom(ticket,car);
         return ticket;
 
