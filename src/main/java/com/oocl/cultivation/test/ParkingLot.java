@@ -38,4 +38,8 @@ public class ParkingLot {
     public int getEmptyPosition() {
         return capacity - parkingRoom.size();
     }
+
+    public int getEmptyRate() {
+        return (capacity-parkingRoom.size())*100/capacity;
+    }
 }
