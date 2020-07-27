@@ -4,20 +4,21 @@ public class SmartParkingBoy extends ParkingBoy{
     @Override
     public Ticket parking(Car car) {
         int indexOfMaxEmptyPosition = 0;
-        for(int index=0;index<parkingLots.size();index++){
-            if((parkingLots.get(indexOfMaxEmptyPosition).getCapacity()- parkingLots.get(indexOfMaxEmptyPosition).getParkingRoom().size())
-                        <(parkingLots.get(index).getCapacity()- parkingLots.get(index).getParkingRoom().size())){
-                indexOfMaxEmptyPosition = index;
+        ParkingLot parkingLot = parkingLots.get(0);
+        for(int index=0;index<parkingLots.size();index++){//todo
+            if((parkingLots.get(indexOfMaxEmptyPosition).getEmptyPosition())
+                        <(parkingLots.get(index).getEmptyPosition())){
+                parkingLot = parkingLots.get(index);
             }
 
         }
-        if(parkingLots.get(indexOfMaxEmptyPosition).isNoPosition()){
+        if(parkingLot.isNoPosition()){
             System.out.print("Not enough position.\n");
             return null;
         }
         Ticket ticket = new Ticket(car.getNumber());
         ticket.setParkingBoy(this);
-        parkingLots.get(indexOfMaxEmptyPosition).addParkingRoom(ticket,car);
+        parkingLot.addParkingRoom(ticket,car);
         return ticket;
 
     }

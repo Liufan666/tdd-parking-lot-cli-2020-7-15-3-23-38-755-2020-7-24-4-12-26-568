@@ -29,9 +29,9 @@ public class ParkingBoy {
 
             if(isRecognized(ticket,parkingLots.get(index))){
                 ticket.useTicket();
-                Car car = parkingLots.get(index).getParkingRoom().get(ticket);
-                parkingLots.get(index).getParkingRoom().remove(ticket);
-                return car;
+
+
+                return parkingLots.get(index).getParkingRoom().remove(ticket);
             }
 
         }
@@ -39,19 +39,7 @@ public class ParkingBoy {
         return null;
 
     }
-    public Car fetch(Ticket ticket ,ParkingLot parkingLot){
-        if(ticket==null){
-            return null;
-        }
-        if(!isRecognized(ticket,parkingLot)){
-            return null;
-        }
-        ticket.useTicket();
-        Car car = parkingLot.getParkingRoom().get(ticket);
-        parkingLot.getParkingRoom().remove(ticket);
-        return car;
 
-    }
     public Ticket parking(Car car, ParkingLot parkingLot) {
         if (parkingLot.getCapacity()<=parkingLot.getParkingRoom().size()){
             System.out.print("Not enough position.\n");
@@ -64,9 +52,6 @@ public class ParkingBoy {
 
     }
 
-    public List<ParkingLot> getParkingLots() {
-        return parkingLots;
-    }
     public void addParkingLots(ParkingLot parkingLot){
         this.parkingLots.add(parkingLot);
 
